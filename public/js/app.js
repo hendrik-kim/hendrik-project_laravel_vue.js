@@ -1944,7 +1944,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    itemTitle: String,
+    itemContent: String,
+    itemPrice: Number
+  }
+});
 
 /***/ }),
 
@@ -1958,6 +1965,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BookableListItem_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BookableListItem.vue */ "./resources/js/bookable/BookableListItem.vue");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37651,20 +37665,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", [_vm._v(_vm._s(_vm.itemTitle))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.itemContent))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.itemPrice))])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h1", [_vm._v("Title")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("content")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37689,11 +37698,21 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("bookable-list-item"),
+      _c("bookable-list-item", {
+        attrs: {
+          "item-title": "Cheap Villa",
+          "item-content": "A very cheap villa",
+          "item-price": 1000
+        }
+      }),
       _vm._v(" "),
-      _c("bookable-list-item"),
-      _vm._v(" "),
-      _c("bookable-list-item")
+      _c("bookable-list-item", {
+        attrs: {
+          "item-title": "Cheap Villa2",
+          "item-content": "A very cheap villa2",
+          "item-price": 2000
+        }
+      })
     ],
     1
   )
