@@ -1916,6 +1916,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -37580,9 +37582,20 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("router-link", { attrs: { to: "/" } }, [_vm._v("Home")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/second" } }, [_vm._v("2nd")]),
+      _c(
+        "nav",
+        { staticClass: "navbar bg-white border-bottom navbar-light" },
+        [
+          _c("router-link", { attrs: { to: { name: "home" } } }, [
+            _vm._v("LarabelBnb")
+          ]),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: { name: "example" } } }, [
+            _vm._v("2nd")
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("router-view")
     ],

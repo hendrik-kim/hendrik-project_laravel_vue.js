@@ -1,7 +1,9 @@
 <template>
     <div>
-        <router-link to="/">Home</router-link>
-        <router-link to="/second">2nd</router-link>
+        <nav class="navbar bg-white border-bottom navbar-light">
+            <router-link :to="{ name: 'home' }">LarabelBnb</router-link>
+            <router-link :to="{ name: 'example' }">2nd</router-link>
+        </nav>
         <router-view></router-view>
     </div>
 </template>
