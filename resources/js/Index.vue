@@ -1,10 +1,16 @@
 <template>
     <div>
         <nav class="navbar bg-white border-bottom navbar-light">
-            <router-link :to="{ name: 'home' }">LarabelBnb</router-link>
-            <router-link :to="{ name: 'example' }">2nd</router-link>
+            <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }"
+                >LarabelBnb</router-link
+            >
+            <router-link class="btn nav-buttom" :to="{ name: 'example' }"
+                >2nd</router-link
+            >
         </nav>
-        <router-view></router-view>
+        <div class="container mt-4 mb-4 pr-4 pl-4">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
