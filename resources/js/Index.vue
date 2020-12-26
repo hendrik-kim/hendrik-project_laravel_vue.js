@@ -12,7 +12,7 @@
             <router-view></router-view>
         </div>
     </div>
-</template>
+</template> 
 
 <script>
 export default {};

@@ -1,11 +1,11 @@
 import VueRouter from "vue-router";
-import ExampleComponent from "./components/ExampleComponent.vue";
 import Example from "./components/Example.vue";
+import Bookables from "./bookable/Bookables.vue";
 
 const routes = [
     {
         path: "/",
-        component: ExampleComponent,
+        component: Bookables,
         name: "home"
     },
     {
