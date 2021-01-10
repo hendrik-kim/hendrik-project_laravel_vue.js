@@ -14,7 +14,22 @@
             >Previous</a
           >
         </li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        <li class="page-item disabled">
+          <a class="page-link text-dark" href="#"
+            >Page {{ pagination.current_page }} of {{ pagination.last_page }}</a
+          >
+        </li>
+        <li
+          v-bind:class="[{ disabled: !pagination.next_page_url }]"
+          class="page-item"
+        >
+          <a
+            class="page-link"
+            href="#"
+            @click="fetchArticles(pagination.next_page_url)"
+            >Next</a
+          >
+        </li>
       </ul>
     </nav>
     <div
@@ -24,6 +39,10 @@
     >
       <h3>{{ article.title }}</h3>
       <p>{{ article.body }}</p>
+      <hr />
+      <button @click="deleteArticle(article.id)" class="btn btn-danger">
+        Delete
+      </button>
     </div>
   </div>
 </template>
@@ -58,14 +77,27 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-    makePagination(mata, links) {
+    makePagination(meta, links) {
       let pagination = {
         current_page: meta.current_page,
         last_page: meta.last_page,
         next_page_url: links.next,
         prev_page_url: links.prev,
       };
-      this.pagenation = pagenation;
+      this.pagination = pagination;
+    },
+    deleteArticle(id) {
+      if (confirm('Are you sure to delete article?')) {
+        fetch(`api/article/${id}`, {
+          method: 'delete',
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            alert('Article removed');
+            this.fetchArticles();
+          })
+          .catch((error) => console.log(err));
+      }
     },
   },
 };
