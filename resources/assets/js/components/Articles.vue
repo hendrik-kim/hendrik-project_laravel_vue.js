@@ -60,6 +60,9 @@
       <h3>{{ article.title }}</h3>
       <p>{{ article.body }}</p>
       <hr />
+      <button @click="editArticle(article)" class="btn btn-warning mb-2">
+        Edit
+      </button>
       <button @click="deleteArticle(article.id)" class="btn btn-danger">
         Delete
       </button>
@@ -139,7 +142,29 @@ export default {
           .catch((err) => console.log(err));
       } else {
         // Update
+        fetch('api/article', {
+          method: 'put',
+          body: JSON.stringify(this.article),
+          headers: {
+            'content-type': 'application/json',
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            this.article.title = '';
+            this.article.body = '';
+            alert('Article updated!');
+            this.fetchArticles();
+          })
+          .catch((err) => console.log(err));
       }
+    },
+    editArticle(article) {
+      this.edit = true;
+      this.article.id = article.id;
+      this.article.article_id = article.id;
+      this.article.title = article.title;
+      this.article.body = article.body;
     },
   },
 };
